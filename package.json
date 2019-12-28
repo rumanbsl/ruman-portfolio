@@ -1,0 +1,51 @@
+{
+  "name": "gridsome-typescript-starter",
+  "private": true,
+  "scripts": {
+    "start": "gridsome develop",
+    "prod": "gridsome build",
+    "explore": "gridsome explore",
+    "lint:check": "eslint --ext .ts,.vue ./src",
+    "lint:fix": "yarn lint:check --fix"
+  },
+  "dependencies": {
+    "gridsome": "^0.7.12",
+    "vue-property-decorator": "^8.3.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-vue": "^6.1.1",
+    "gridsome-plugin-svg": "^0.0.10",
+    "gridsome-plugin-tailwindcss": "^2.2.30",
+    "gridsome-plugin-typescript": "0.4.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "vue-eslint-parser": "7.0.0",
+    "stylelint": "^12.0.0",
+    "stylelint-webpack-plugin": "1.1.2",
+    "stylelint-config-lost": "^0.0.3",
+    "stylelint-config-sass-guidelines": "^6.2.0",
+    "stylelint-config-standard": "^19.0.0"
+  },
+  "lint-staged": {
+    "*.(vue|ts)": "yarn lint:check"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
