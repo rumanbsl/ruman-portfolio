@@ -53,7 +53,8 @@
     "max-len": [
       "error",
       {
-        "code": 160
+        "code": 160,
+        "ignorePattern": "d="
       }
     ],
     "no-multi-spaces": 2,
@@ -129,7 +130,8 @@
       "error",
       "PascalCase",
       {
-        "registeredComponentsOnly": false
+        "registeredComponentsOnly": false,
+        "ignores": ["g-link", "g-image", "layout"]
       }
     ],
     "vue/html-closing-bracket-newline": [

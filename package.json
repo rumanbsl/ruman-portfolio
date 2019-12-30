@@ -9,7 +9,9 @@
     "lint:fix": "yarn lint:check --fix"
   },
   "dependencies": {
+    "@vue/composition-api": "^0.3.4",
     "gridsome": "^0.7.12",
+    "vue": "^2.6.10",
     "vue-property-decorator": "^8.3.0"
   },
   "devDependencies": {
@@ -31,14 +33,14 @@
     "lint-staged": "^9.5.0",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.4",
-    "vue-eslint-parser": "7.0.0",
     "stylelint": "^12.0.0",
-    "stylelint-webpack-plugin": "1.1.2",
     "stylelint-config-lost": "^0.0.3",
     "stylelint-config-sass-guidelines": "^6.2.0",
-    "stylelint-config-standard": "^19.0.0"
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-webpack-plugin": "1.1.2",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "vue-eslint-parser": "7.0.0"
   },
   "lint-staged": {
     "*.(vue|ts)": "yarn lint:check"

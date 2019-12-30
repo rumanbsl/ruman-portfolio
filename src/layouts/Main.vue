@@ -1,17 +1,20 @@
 <template>
-  <div class="main p-5">
-    We will work here
-  </div>
+  <main>
+    <slot />
+  </main>
 </template>
 
 <script lang="ts">
-export default {
+import Vue from "vue";
+
+export default Vue.extend({
+  computed: { ola(): string { this.hello(); return ""; } },
   methods: {
     hello() {
       console.log("bruh");
     },
   },
-};
+});
 </script>
 
 <static-query>
@@ -21,10 +24,3 @@ export default {
     }
   }
 </static-query>
-
-<style lang="scss">
-.main {
-  display:flex;
-  border: 1px solid red;
-}
-</style>

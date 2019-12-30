@@ -1,7 +1,7 @@
 const StyleLintWebpackPlugin = require("stylelint-webpack-plugin");
 const { resolve } = require("path");
 
-module.exports = {
+let config = {
   siteName: "Ruman's Portfolio",
   icon: "src/assets/favicon.png",
   plugins: [
@@ -29,25 +29,34 @@ module.exports = {
       },
     },
   ],
-  port: 1234,
-  configureWebpack: {
-    module: {
-      rules: [
-        {
-          enforce: "pre",
-          test: /\.(js|ts|vue)$/,
-          include: resolve(__dirname, "./src"),
-          exclude: /node_modules/,
-          loader: "eslint-loader",
-          options: { configFile: ".eslintrc.json" },
-        },
+
+};
+
+if (process.env.NODE_ENV === "development") {
+  config = {
+    ...config,
+    port: 1234,
+    configureWebpack: {
+      module: {
+        rules: [
+          {
+            enforce: "pre",
+            test: /\.(js|ts|vue)$/,
+            include: resolve(__dirname, "./src"),
+            exclude: /node_modules/,
+            loader: "eslint-loader",
+            options: { configFile: ".eslintrc.json" },
+          },
+        ],
+      },
+      plugins: [
+        new StyleLintWebpackPlugin({
+          configFile: "./.stylelintrc",
+          files: ["src/**/*.scss", "src/**/*.vue"],
+        }),
       ],
     },
-    plugins: [
-      new StyleLintWebpackPlugin({
-        configFile: "./.stylelintrc",
-        files: ["src/**/*.scss", "src/**/*.vue"],
-      }),
-    ],
-  },
-};
+  };
+}
+
+module.exports = config;
