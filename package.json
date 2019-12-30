@@ -1,5 +1,5 @@
 {
-  "name": "gridsome-typescript-starter",
+  "name": "rumans portfolio",
   "private": true,
   "scripts": {
     "start": "gridsome develop",
