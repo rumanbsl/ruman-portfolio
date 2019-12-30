@@ -40,13 +40,14 @@ export default Vue.extend({
     ],
   }),
   mounted() {
+    setTimeout(() => { this.$router.push({ path: "/bios" }); }, 10000);
     const timer = setInterval(() => {
       const toggleToTrueIndex = this.texts.findIndex(text => !text.show);
       if (!this.texts[toggleToTrueIndex]) {
         clearInterval(timer);
         this.texts.push({ label: 0, show: true });
         for (let i = 0; i < (Math.random() * 100) * 10000000; i += 1) {
-          this.texts[this.texts.length - 1].label = `Memore tested: ${i}K of Fake memory`;
+          this.texts[this.texts.length - 1].label = `Memory tested: ${i}K of Fake memory`;
         }
         setTimeout(this.initiateNoKeyboard, 3000);
       } else {
@@ -63,7 +64,7 @@ export default Vue.extend({
       setTimeout(() => {
         this.texts.push({ label: "jackie", show: true });
         window.addEventListener("keydown", e => {
-          if (e.keyCode === 112) this.$router.push({ path: "/bios" });
+          this.$router.push({ path: "/bios" });
         });
       }, 1500);
     },

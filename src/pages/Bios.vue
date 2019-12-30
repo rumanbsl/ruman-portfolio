@@ -6,14 +6,21 @@
         <li
           v-for="(nav, n) in navigation"
           :key="n"
-          :class="['p-5', nav.active ? 'bg-gray-400 text-blue-800 rounded-t-sm' : ''].filter(Boolean)"
+          :class="['p-5 cursor-pointer', nav.active ? 'bg-gray-400 text-blue-800 rounded-t-sm' : ''].filter(Boolean)"
+          @click="navigate(n)"
         >
           {{ nav.label }}
         </li>
       </ul>
-      <Component :is="activeComponent" class="h-full w-full bg-gray-400 text-blue-800" />
+      <div class="h-full w-full bg-gray-400 text-blue-800">
+        <Component :is="activeComponent" />
+      </div>
     </main>
-    <footer class="text-xl text-center h-15 bg-gray-800">footer lists</footer>
+    <footer class="text-xl text-center h-15 bg-gray-800 flex items-center p-3">
+      <Left class="mr-1" />
+      <Right />
+      <p class="ml-2">Select Menu</p>
+    </footer>
   </Layout>
 </template>
 
@@ -21,17 +28,16 @@
 import Vue from "vue";
 import AboutMe from "../components/aboutMe.vue";
 import Skills from "../components/skills.vue";
-import Downloadables from "../components/downloadables.vue";
-import Contact from "../components/contact.vue";
 import Blogs from "../components/blogs.vue";
+import Left from "../components/icons/left-arrow.vue";
+import Right from "../components/icons/right-arrow.vue";
 
 export default Vue.extend({
+  components: { Left, Right },
   data: () => ({
     navigation: [
       { active: false, label: "About Me" },
-      { active: false, label: "Skills" },
-      { active: false, label: "Downloadables" },
-      { active: false, label: "Contact" },
+      { active: false, label: "Experience & Skills" },
       { active: false, label: "Blogs" },
     ],
     activeTab: 0,
@@ -42,9 +48,7 @@ export default Vue.extend({
       switch (this.activeTab) {
         case 0: return AboutMe;
         case 1: return Skills;
-        case 2: return Downloadables;
-        case 3: return Contact;
-        case 4: return Blogs;
+        case 2: return Blogs;
         default: return AboutMe;
       }
     },
@@ -62,14 +66,16 @@ export default Vue.extend({
         this.navigation[activeIndex].active = false;
         this.navigation[activeIndex + 1].active = true;
         this.activeTab = this.navigation.findIndex(nav => nav.active);
-      // top
-      } else if (e.keyCode === 38) /* top */ {
-        console.log("top");
-      // bottom
-      } else if (e.keyCode === 40) /* bottom */ {
-        console.log("bottom");
       }
     });
+  },
+  methods: {
+    navigate(tab: number) {
+      const activeIndex = this.navigation.findIndex(nav => nav.active);
+      this.navigation[activeIndex].active = false;
+      this.navigation[tab].active = true;
+      this.activeTab = this.navigation.findIndex(nav => nav.active);
+    },
   },
 });
 </script>
