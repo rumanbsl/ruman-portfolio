@@ -1,9 +1,9 @@
 <template>
-  <Layout class="flex justify-between p-8">
-    <div>
+  <Layout class="lg:flex justify-between p-8">
+    <div class="sm:mb-5">
       <p v-for="(text, t) in texts" :key="t">
         <span v-if="text.show && text.label !=='jackie'" class="text-xl">{{ text.label }}</span>
-        <img v-else-if="text.show && text.label === 'jackie'" src="/Jackie-Chan-WTF.jpg" alt="">
+        <img v-else-if="text.show && text.label === 'jackie'" src="/Jackie-Chan-WTF.jpg" alt="jackie-chan" class="mt-5">
       </p>
     </div>
     <div>
@@ -63,9 +63,9 @@ export default Vue.extend({
       setTimeout(() => {
         this.texts.push({ label: "jackie", show: true });
         window.addEventListener("keydown", e => {
-          if (e.keyCode === 112) this.$router.push({ path: "/about" });
+          if (e.keyCode === 112) this.$router.push({ path: "/bios" });
         });
-      }, 2000);
+      }, 1500);
     },
   },
 });

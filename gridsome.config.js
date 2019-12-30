@@ -3,7 +3,7 @@ const { resolve } = require("path");
 
 let config = {
   siteName: "Ruman's Portfolio",
-  icon: "src/assets/favicon.png",
+  icon: "src/assets/svgs/favicon.svg",
   plugins: [
     { use: "gridsome-plugin-typescript" },
     { use: "gridsome-plugin-tailwindcss" },
