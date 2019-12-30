@@ -3,8 +3,21 @@
   src: url("../fonts/Perfect.woff");
 }
 
+@font-face {
+  font-family: IBM;
+  src: url("../fonts/IBM.ttf");
+}
+
 body {
   background-color: #000;
   color: #efefef;
   font-family: Perfect, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+h2,
+h4 {
+  font-family: IBM, Verdana, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bolder;
 }

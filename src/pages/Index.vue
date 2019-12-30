@@ -3,7 +3,7 @@
     <div class="sm:mb-5">
       <p v-for="(text, t) in texts" :key="t">
         <span v-if="text.show && text.label !=='jackie'" class="text-xl">{{ text.label }}</span>
-        <img v-else-if="text.show && text.label === 'jackie'" src="/Jackie-Chan-WTF.jpg" alt="jackie-chan" class="mt-5">
+        <g-image v-else-if="text.show && text.label === 'jackie'" src="@/assets/images/Jackie-Chan-WTF.jpg" alt="jackie-chan" class="mt-5" />
       </p>
     </div>
     <div>

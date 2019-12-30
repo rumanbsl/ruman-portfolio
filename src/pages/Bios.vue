@@ -2,10 +2,16 @@
   <Layout class="bios flex  flex-col justify-between h-screen">
     <header class="text-2xl text-center h-15 bg-gray-800">90's Kids will Remember this(tm) CMOS Setup Utility</header>
     <main class="h-full">
-      <ul class="flex text-xl bg-blue-800">
-        <li v-for="(nav, n) in navigation" :key="n" :class="['p-5', nav.active ? 'bg-gray-400 text-blue-800' : ''].filter(Boolean)">{{ nav.label }}</li>
+      <ul class="md:flex text-xl bg-blue-800">
+        <li
+          v-for="(nav, n) in navigation"
+          :key="n"
+          :class="['p-5', nav.active ? 'bg-gray-400 text-blue-800 rounded-t-sm' : ''].filter(Boolean)"
+        >
+          {{ nav.label }}
+        </li>
       </ul>
-      <Component :is="activeComponent" />
+      <Component :is="activeComponent" class="h-full w-full bg-gray-400 text-blue-800" />
     </main>
     <footer class="text-xl text-center h-15 bg-gray-800">footer lists</footer>
   </Layout>
@@ -44,6 +50,7 @@ export default Vue.extend({
     },
   },
   mounted() {
+    // document.body.style.cursor = "none";
     this.navigation[this.activeTab].active = true;
     window.addEventListener("keydown", e => {
       const activeIndex = this.navigation.findIndex(nav => nav.active);
