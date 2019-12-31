@@ -30,7 +30,7 @@ export default Vue.extend({
   },
   methods: {
     goTo(site: string) {
-      const url = site === "github" ? "https://github.com/rumanbsl" : "https://fi.linkedin.com/in/a1300670";
+      const url = site === "github" ? "https://github.com/rumanbsl" : "https://www.linkedin.com/in/rumanhuq/";
       window.location.replace(url);
     },
   },
