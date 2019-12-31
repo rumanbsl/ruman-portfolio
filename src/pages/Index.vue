@@ -34,12 +34,14 @@ export default Vue.extend({
   components: {},
   data: (): Idata => ({
     texts: [
-      { label: navigator.oscpu, show: false },
-      { label: navigator.userAgent.split(" ").splice(-1)[0], show: false },
-      { label: "Copywright (C) 2020, Ruman's Nostalgic BIOS tribute Inc.", show: false },
     ],
   }),
   mounted() {
+    if (navigator) {
+      this.texts.push({ label: navigator.oscpu, show: false },
+        { label: navigator.userAgent.split(" ").splice(-1)[0], show: false },
+        { label: "Copywright (C) 2020, Ruman's Nostalgic BIOS tribute Inc.", show: false });
+    }
     setTimeout(() => { this.$router.push({ path: "/bios" }); }, 10000);
     const timer = setInterval(() => {
       const toggleToTrueIndex = this.texts.findIndex(text => !text.show);
