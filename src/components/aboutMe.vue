@@ -1,6 +1,6 @@
 <template>
-  <section class="py-16 mx-auto text-justify" style="max-width: 550px;">
-    <div class="p-4">
+  <section class="py-6 mx-auto text-justify" style="max-width: 550px;">
+    <div>
       <g-image src="@/assets/images/ruman-pixel.png" class="rounded-full w-32 block mx-auto" />
       <h2 class="mt-3">Hello, I am <span class="text-gray-900 bg-gray-300 p-2 rounded">Majedul Hoque</span>.</h2>
       <h2>I am a full-stack web developer.</h2>
@@ -31,7 +31,7 @@ export default Vue.extend({
   methods: {
     goTo(site: string) {
       const url = site === "github" ? "https://github.com/rumanbsl" : "https://www.linkedin.com/in/rumanhuq/";
-      window.location.replace(url);
+      window.open(url);
     },
   },
 });

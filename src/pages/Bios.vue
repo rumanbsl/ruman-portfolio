@@ -12,11 +12,11 @@
           {{ nav.label }}
         </li>
       </ul>
-      <div class="h-full w-full bg-gray-400 text-blue-800">
+      <div class="h-full w-full bg-gray-400 text-blue-800 px-8">
         <Component :is="activeComponent" />
       </div>
     </main>
-    <footer class="text-xl text-center h-15 bg-gray-800 flex items-center p-3">
+    <footer class="hidden md:flex text-xl text-center h-15 bg-gray-800 flex items-center p-3">
       <Left class="mr-1" />
       <Right />
       <p class="ml-2">Select Menu</p>
@@ -28,7 +28,7 @@
 import Vue from "vue";
 import AboutMe from "../components/aboutMe.vue";
 import Skills from "../components/skills.vue";
-import Blogs from "../components/blogs.vue";
+import Projects from "../components/projects.vue";
 import Left from "../components/icons/left-arrow.vue";
 import Right from "../components/icons/right-arrow.vue";
 
@@ -38,7 +38,7 @@ export default Vue.extend({
     navigation: [
       { active: false, label: "About Me" },
       { active: false, label: "Experience & Skills" },
-      { active: false, label: "Blogs" },
+      { active: false, label: "Projects" },
     ],
     activeTab: 0,
   }),
@@ -48,7 +48,7 @@ export default Vue.extend({
       switch (this.activeTab) {
         case 0: return AboutMe;
         case 1: return Skills;
-        case 2: return Blogs;
+        case 2: return Projects;
         default: return AboutMe;
       }
     },
