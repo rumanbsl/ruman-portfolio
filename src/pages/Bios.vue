@@ -56,18 +56,20 @@ export default Vue.extend({
     document.body.style.backgroundColor = "#cbd5e0";
     // document.body.style.cursor = "none";
     this.navigation[this.activeTab].active = true;
-    window.addEventListener("keydown", e => {
-      const activeIndex = this.navigation.findIndex(nav => nav.active);
-      if (e.keyCode === 37 && activeIndex !== 0) /* left */ {
-        this.navigation[activeIndex].active = false;
-        this.navigation[activeIndex - 1].active = true;
-        this.activeTab = this.navigation.findIndex(nav => nav.active);
-      } else if (e.keyCode === 39 && activeIndex !== this.navigation.length - 1) /* right */ {
-        this.navigation[activeIndex].active = false;
-        this.navigation[activeIndex + 1].active = true;
-        this.activeTab = this.navigation.findIndex(nav => nav.active);
-      }
-    });
+    if (window) {
+      window.addEventListener("keydown", e => {
+        const activeIndex = this.navigation.findIndex(nav => nav.active);
+        if (e.keyCode === 37 && activeIndex !== 0) /* left */ {
+          this.navigation[activeIndex].active = false;
+          this.navigation[activeIndex - 1].active = true;
+          this.activeTab = this.navigation.findIndex(nav => nav.active);
+        } else if (e.keyCode === 39 && activeIndex !== this.navigation.length - 1) /* right */ {
+          this.navigation[activeIndex].active = false;
+          this.navigation[activeIndex + 1].active = true;
+          this.activeTab = this.navigation.findIndex(nav => nav.active);
+        }
+      });
+    }
   },
   methods: {
     navigate(tab: number) {

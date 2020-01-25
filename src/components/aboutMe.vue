@@ -31,7 +31,7 @@ export default Vue.extend({
   methods: {
     goTo(site: string) {
       const url = site === "github" ? "https://github.com/rumanbsl" : "https://www.linkedin.com/in/rumanhuq/";
-      window.open(url);
+      if (window) window.open(url);
     },
   },
 });
