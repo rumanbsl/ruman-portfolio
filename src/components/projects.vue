@@ -1,18 +1,28 @@
 <template>
-  <div class="py-8">
-    <h2>Arduino Projects</h2>
-    <div class="md:flex mt-4">
-      <Card
-        v-for="(content, key) in contents"
-        :key="key"
-        class="mx-auto mb-8 lg:m-0 lg:mr-16 cursor-pointer"
-        :img="content.img"
-        :vid="content.vid"
-        :title="content.title"
-        :subtitle="content.subtitle"
-      />
+  <section>
+    <div class="py-8">
+      <h2 class="sm:text-center md:text-left">Arduino Projects</h2>
+      <div class="md:flex mt-4">
+        <Card
+          v-for="(content, key) in arduinoContents"
+          :key="key"
+          class="mx-auto mb-8 lg:m-0 lg:mr-16 cursor-pointer"
+          :content="content"
+        />
+      </div>
     </div>
-  </div>
+    <div class="py-8">
+      <h2 class="sm:text-center md:text-left">Other Projects</h2>
+      <div class="md:flex mt-4">
+        <Card
+          v-for="(content, key) in otherContents"
+          :key="key"
+          class="mx-auto mb-8 lg:m-0 lg:mr-16 cursor-pointer"
+          :content="content"
+        />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -23,14 +33,38 @@ import Card from "./card.vue";
 export default Vue.extend({
   components: { Card },
   data: () => ({
-    contents: [
+    arduinoContents: [
       {
         img: require("@/assets/images/thumbnail_1.jpg"),
         vid: "/vid_1.mp4",
-        title: "In my spare time I like to hack arduino devices. With the help JohnnyfiveJS I have learned a thing or two about embedded systems",
-        subtitle: "Blinky",
+        title: "Light sensor",
+        subtitle: "This uses JohnnyFive framework. Arduino photoresistor is used to get light sensivity around LED",
+        github: "https://github.com/rumanbsl/arduino-node",
       },
-      { img: require("@/assets/images/thumbnail_2.jpg"), vid: "/vid_2.mp4", title: "Arduino light sensor", subtitle: "Light light" },
+      {
+        img: require("@/assets/images/thumbnail_2.jpg"),
+        vid: "/vid_2.mp4",
+        title: "Dancing LED",
+        subtitle: "Another JohnnyFive project. Event loop is the main mechanism behind the sequential toggle of light on/off",
+        github: "https://github.com/rumanbsl/arduino-node",
+      },
+    ],
+    otherContents: [
+      {
+        img: require("@/assets/images/mixed-logos.png"),
+        title: "Monorepo",
+        subtitle: `Cultivation of what stack I know so far. A massive Docker boilerplate template consisting
+        rust, typescript, VueJS, ExpressJS, tide-rs, graphQL, and traefik(load-balancing).`,
+        github: "https://github.com/rumanbsl/monorepo-blog",
+        fit: true,
+      },
+      {
+        img: require("@/assets/images/npm-logo.png"),
+        title: "Vue P5 component",
+        subtitle: "Vue P5 component with typescript definitions. I published this library in NPM almost a year ago",
+        github: "https://www.npmjs.com/package/vue-p5-component",
+        fit: true,
+      },
     ],
   }),
 });

@@ -1,8 +1,8 @@
 <template>
-  <Layout class="bios flex  flex-col justify-between md:h-screen">
-    <header class="text-2xl text-center h-15 bg-gray-800">90's Kids will Remember this(tm) CMOS Setup Utility</header>
-    <main class="h-full">
-      <ul class="md:flex text-xl bg-blue-800">
+  <Layout class="bios">
+    <header class="md:fixed w-full">
+      <p class="text-2xl text-center bg-gray-800 p-1">90's Kids will Remember this(tm) CMOS Setup Utility</p>
+      <ul class="flex text-xl bg-blue-800">
         <li
           v-for="(nav, n) in navigation"
           :key="n"
@@ -12,11 +12,11 @@
           {{ nav.label }}
         </li>
       </ul>
-      <div class="h-full w-full bg-gray-400 text-blue-800 px-8">
-        <Component :is="activeComponent" />
-      </div>
+    </header>
+    <main :class="`bg-gray-400 text-blue-800 px-8 md:py-32 sm:py-16`">
+      <Component :is="activeComponent" />
     </main>
-    <footer class="hidden md:flex text-xl text-center h-15 bg-gray-800 flex items-center p-3">
+    <footer class="bottom-0 fixed w-full hidden md:flex text-xl text-center h-15 bg-gray-800 flex items-center p-3">
       <Left class="mr-1" />
       <Right />
       <p class="ml-2">Select Menu</p>
@@ -44,7 +44,6 @@ export default Vue.extend({
   }),
   computed: {
     activeComponent() {
-      // console.log(this.activeTab);
       switch (this.activeTab) {
         case 0: return AboutMe;
         case 1: return Skills;
@@ -80,3 +79,14 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style scoped>
+.header {
+  position: fixed;
+}
+
+.main {
+  border: 1px solid #f00;
+  max-height: 800px;
+}
+</style>
