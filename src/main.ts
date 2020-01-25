@@ -1,6 +1,5 @@
 // gridsome.org/docs/client-api
 import "@/assets/css/global.css";
-import VModal from "vue-js-modal";
 import { ClientApiConstructor } from "./types";
 import Main from "@/layouts/Main.vue";
 
@@ -8,6 +7,9 @@ import Main from "@/layouts/Main.vue";
 const client: ClientApiConstructor = (Vue, { head }) => {
   // @ts-ignore
   if (process.isClient) {
+    console.log("client build");
+    // eslint-disable-next-line global-require
+    const VModal = require("vue-js-modal").default;
     Vue.use(VModal);
   }
   Vue.component("Layout", Main);
