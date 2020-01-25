@@ -1,5 +1,5 @@
 <template>
-  <Layout class="bios flex  flex-col justify-between h-screen">
+  <Layout class="bios flex  flex-col justify-between md:h-screen">
     <header class="text-2xl text-center h-15 bg-gray-800">90's Kids will Remember this(tm) CMOS Setup Utility</header>
     <main class="h-full">
       <ul class="md:flex text-xl bg-blue-800">
@@ -54,6 +54,7 @@ export default Vue.extend({
     },
   },
   mounted() {
+    document.body.style.backgroundColor = "#cbd5e0";
     // document.body.style.cursor = "none";
     this.navigation[this.activeTab].active = true;
     window.addEventListener("keydown", e => {
