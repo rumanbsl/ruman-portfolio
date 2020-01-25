@@ -6,7 +6,10 @@ import Main from "@/layouts/Main.vue";
 
 /** Main Wrapper */
 const client: ClientApiConstructor = (Vue, { head }) => {
-  Vue.use(VModal);
+  // @ts-ignore
+  if (process.isClient) {
+    Vue.use(VModal);
+  }
   Vue.component("Layout", Main);
   head.title = "My Awesome Gridsome Project";
 };
