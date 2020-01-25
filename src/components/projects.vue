@@ -78,10 +78,12 @@ export default Vue.extend({
   methods: {
     show(vid: string) {
       this.activeVid = vid;
+      // @ts-ignore
       this.$modal.show("video-player");
     },
     hide() {
       this.activeVid = "";
+      // @ts-ignore
       this.$modal.hide("video-player");
     },
   },
