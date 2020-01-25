@@ -52,6 +52,9 @@ export default Vue.extend({
       }
     },
   },
+  destroyed() {
+    document.body.style.backgroundColor = "#000";
+  },
   mounted() {
     document.body.style.backgroundColor = "#cbd5e0";
     // document.body.style.cursor = "none";
