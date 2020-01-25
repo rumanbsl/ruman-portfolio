@@ -43,7 +43,7 @@ export default Vue.extend({
     activeVid: "",
     arduinoContents: [
       {
-        img: require("@/assets/images/thumbnail_1.jpg"),
+        img: require("@/assets/images/thumbnail_1.png"),
         vid: "/vid_1.mp4",
         title: "Light sensor",
         subtitle: "This uses JohnnyFive framework. Arduino photoresistor is used to get light sensivity around LED",
