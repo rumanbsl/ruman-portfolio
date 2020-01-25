@@ -9,3 +9,8 @@
     <path d="M39 22.5L0.749998 44.5836L0.75 0.41635L39 22.5Z" fill="white" />
   </svg>
 </template>
+<script>
+import Vue from "vue";
+
+export default Vue.extend({});
+</script>

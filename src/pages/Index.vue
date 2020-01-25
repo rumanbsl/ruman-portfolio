@@ -65,7 +65,7 @@ export default Vue.extend({
       ];
       setTimeout(() => {
         this.texts.push({ label: "jackie", show: true });
-        window.addEventListener("keydown", e => {
+        window.addEventListener("keydown", () => {
           this.$router.push({ path: "/bios" });
         });
       }, 1500);

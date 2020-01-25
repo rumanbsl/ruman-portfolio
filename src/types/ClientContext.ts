@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import VueRouter from "vue-router";
 import { MetaInfo } from "vue-meta";
 

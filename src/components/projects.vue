@@ -6,8 +6,9 @@
         <Card
           v-for="(content, key) in arduinoContents"
           :key="key"
-          class="mx-auto mb-8 lg:m-0 lg:mr-16 cursor-pointer"
+          class="mx-auto mb-8 lg:m-0 lg:mr-16"
           :content="content"
+          @open-modal="show"
         />
       </div>
     </div>
@@ -17,11 +18,17 @@
         <Card
           v-for="(content, key) in otherContents"
           :key="key"
-          class="mx-auto mb-8 lg:m-0 lg:mr-16 cursor-pointer"
+          class="mx-auto mb-8 lg:m-0 lg:mr-16"
           :content="content"
         />
       </div>
     </div>
+    <Modal name="video-player">
+      <video class="h-full w-full object-fit" autoplay controls>
+        <source :src="activeVid" type="video/mp4">
+        Your browser does not mp4 video.
+      </video>
+    </Modal>
   </section>
 </template>
 
@@ -33,6 +40,7 @@ import Card from "./card.vue";
 export default Vue.extend({
   components: { Card },
   data: () => ({
+    activeVid: "",
     arduinoContents: [
       {
         img: require("@/assets/images/thumbnail_1.jpg"),
@@ -67,5 +75,15 @@ export default Vue.extend({
       },
     ],
   }),
+  methods: {
+    show(vid: string) {
+      this.activeVid = vid;
+      this.$modal.show("video-player");
+    },
+    hide() {
+      this.activeVid = "";
+      this.$modal.hide("video-player");
+    },
+  },
 });
 </script>
